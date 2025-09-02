@@ -1,6 +1,6 @@
 {
   "name": "e-portfolio",
-  "homepage": "https://charleebanx.github.io/charlee-e-portfolio",
+  "homepage": "https://charleebanx.github.io/e-portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,8 +9,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d dist"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.12",
