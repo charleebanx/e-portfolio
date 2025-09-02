@@ -12,7 +12,7 @@ const App = () => {
     <div className = "min-h-screen flex flex-col bg-gray-200">
       <Navbar />
       <Routes>
-        <Route path = "/home" element = {<Home />} />
+        <Route path = "/" element = {<Home />} />
         <Route path = "/about" element = {<About />} />
         <Route path = "/portfolio" element = {<Portfolio />} />
         <Route path = "/contact" element = {<Contact />} />
