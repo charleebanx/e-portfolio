@@ -1,10 +1,9 @@
-import React from 'react'
-import { Routes, Route } from "react-router-dom"
-import Navbar from "./assets/components/components/Navbar"
-import Home from "./routes/Home"
-import About from "./routes/About"
-import Contact from "./routes/Contact"
-import Portfolio from "./routes/Portfolio"
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./assets/components/Navbar";
+import Home from "./routes/Home";
+import About from "./routes/About";
+import Portfolio from "./routes/Portfolio";
+import Contact from "./routes/Contact";
 
 const App = () => {
   return (
@@ -17,7 +16,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
