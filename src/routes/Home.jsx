@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Timeline from "../assets/components/Timeline";
+import ThemedButton from "../assets/ThemedButton";
 function ProfilePhoto() {
   return (
     <img
-      className="size-40 object-center rounded-full"
+      className="w-40 h-40 object-cover rounded-full mx-auto"
       src="images/pfp.png"
       alt="Charlee"
     />
@@ -11,58 +13,51 @@ function ProfilePhoto() {
 }
 
 function NavButton({ to, label }) {
+  const isExternal = to.startsWith("http") || to.endsWith(".pdf");
+
+  if (isExternal) {
+    return (
+      <a href={to} target="_blank" rel="noopener noreferrer">
+        <ThemedButton label={label} />
+      </a>
+    );
+  }
+
   return (
     <Link to={to}>
-      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">
-        {label}
-      </button>
+      <ThemedButton label={label} />
     </Link>
   );
 }
 
-function DownloadResume({ file, label }) {
-  return (
-    <a
-      href={file}
-      download={file}
-      className="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md"
-    >
-      {label}
-    </a>
-  );
-}
-
 const Home = () => {
+  const baseLink = "/e-portfolio";
   return (
-    <div className="min-h-screen bg-gray-200 w-full flex items-center justify-center">
-      <div className="justify-items-center m-6">
+    <div className="min-h-screen bg-#f8fafc w-full flex flex-col items-center pt-20">
+      <div className="max-w-3xl w-full text-center m-6">
         <ProfilePhoto />
-        <h1 className="font-bold text-3xl m-6">Welcome</h1>
-        <p className="m-5">
-          Charlee Anne Rodriguez is completing a Bachelor of Science in
-          Information Science with a concentration in Web Development
-          Technologies at the University of South Florida, graduating in
-          December 2025. Born in the Philippines and raised in Palm Beach
-          County, she now resides in Tampa and is fluent in both English and
-          Filipino. She specializes in web development, IT, and UI/UX design,
-          with technical skills in Java, Python, JavaScript, HTML/CSS, React,
-          Tailwind, and Figma. Her experience includes tutoring at Mathnasium,
-          coaching coding at theCoderSchool, and contributing to CODI, a startup
-          focused on gamified programming education.Charlee is passionate about
-          building accessible, user-focused technology and is open to employment
-          opportunities starting in January 2025.
+        <h2 className="font-bold text-3xl mt-6">Charlee Anne Rodriguez</h2>
+        <p className="mt-4 mb-6">
+          Combining front-end development with information science principles
+          and UI/UX design thinking to help companies deliver polished,
+          user-focused products.
         </p>
 
-        <div className="justify-items-center flex space-x-3 ">
-          <NavButton to="/contact" label="Contact" />
+        <div className="flex justify-center space-x-3 mb-10">
           <NavButton to="/about" label="About" />
-          <DownloadResume
-            file="files/CharleeAnneRodriguez_Resume_EPortfolio.pdf"
-            label="Resume"
+          <NavButton to={`${baseLink}/files/CharleeAnneRodriguez_Resume_EPortfolio.pdf`} label="Resume"/>
+          <NavButton to="https://github.com/charleebanx" label="GitHub" />
+          <NavButton
+            to="https://www.linkedin.com/in/charlee-anne-rodriguez-941b09252/"
+            label="LinkedIn"
           />
         </div>
+      </div>
+      <div className="w-full max-w-4xl px-6">
+        <Timeline />
       </div>
     </div>
   );
 };
+
 export default Home;
